@@ -3,9 +3,6 @@ import { withRouter } from "react-router-dom";
 import "./menu-item.styles.scss";
 
 const MenuItem = ({ title, imageUrl, history, match, linkUrl }) => {
-  console.log(match, linkUrl);
-  console.log(linkUrl);
-
   return (
     <div
       style={{ backgroundImage: `url(${imageUrl})` }}
@@ -20,4 +17,4 @@ const MenuItem = ({ title, imageUrl, history, match, linkUrl }) => {
   );
 };
 
-export default MenuItem;
+export default withRouter(MenuItem);
