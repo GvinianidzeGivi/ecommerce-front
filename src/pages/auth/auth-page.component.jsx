@@ -1,8 +1,8 @@
 import React from "react";
 import SignIn from "../../components/sign-in/sign-in.component";
-import "./sign-in-up.styles.scss";
+import "./auth-page.styles.scss";
 
-const SignInUp = () => {
+const AuthPage = () => {
   return (
     <div className="sign-in-up">
       <SignIn />
@@ -10,4 +10,4 @@ const SignInUp = () => {
   );
 };
 
-export default SignInUp;
+export default AuthPage;
