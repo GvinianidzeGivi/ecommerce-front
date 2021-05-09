@@ -5,13 +5,16 @@ import HomePage from "./pages/homepage/home-page.component";
 import ShopPage from "./pages/shop/shop-page.component";
 import Header from "./components/header/header.component";
 import AuthComponent from "./pages/auth/auth-page.component";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => setCurrentUser(user));
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      createUserProfileDocument(user);
+      setCurrentUser(user);
+    });
     return () => unsubscribe();
   }, [currentUser]);
 
