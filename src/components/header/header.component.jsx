@@ -6,7 +6,6 @@ import { auth } from "../../firebase/firebase.utils";
 import "./header.styles.scss";
 
 const Header = ({ currentUser }) => {
-  console.log(currentUser);
   return (
     <div className="header">
       <Link to="/">
@@ -21,19 +20,15 @@ const Header = ({ currentUser }) => {
         </Link>
 
         {currentUser ? (
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div
-              className="option"
-              style={{ display: "flex" }}
-              onClick={() => auth.signOut()}
-            >
-              SIGN OUT
-            </div>
-            {currentUser.displayName}
-            <img
-              style={{ width: "50px", borderRadius: "50%", margin: "0px 20px" }}
-              src={currentUser.photoURL}
-            />
+          <div
+            className="option"
+            style={{ display: "flex", alignItems: "center" }}
+            onClick={() => auth.signOut()}
+          >
+            SIGN OUT
+            <span style={{ margin: "15px", fontWeight: "bold" }}>
+              {currentUser.displayName}
+            </span>
           </div>
         ) : (
           <Link className="option" to="/auth">
