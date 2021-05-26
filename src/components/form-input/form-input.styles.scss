@@ -33,7 +33,7 @@ $main-color: black;
     }
   }
 
-  input[type="password"] {
+  input[type='password'] {
     letter-spacing: 0.3em;
   }
 
@@ -46,6 +46,7 @@ $main-color: black;
     left: 5px;
     top: 10px;
     transition: 300ms ease all;
+
     &.shrink {
       @include shrinkLabel();
     }
